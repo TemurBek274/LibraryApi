@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using eBook.Domain.Entities;
 
-namespace eBook.Domain.Entities
+namespace LibraryApi.Entities
 {
     public class BookDto
     {
@@ -15,6 +11,5 @@ namespace eBook.Domain.Entities
         public string ISBN { get; set; }
         public Genre Genre { get; set; }
         public decimal Price { get; set; }
-
     }
 }

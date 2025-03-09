@@ -9,6 +9,5 @@ namespace LibraryApi.Services
         Task<Book> AddBook(Book book);
         Task<Book> UpdateBook(Book book);
         Task<Book> DeleteBook(Guid id);
-
     }
 }

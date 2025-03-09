@@ -1,6 +1,7 @@
 ﻿using eBook.Domain.Entities;
 using eLibrary.Services;
 using LibraryApi.Data;
+using LibraryApi.Entities;
 using LibraryApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +44,7 @@ namespace LibraryApi.Controllers
 
         [HttpPost("create-book")]
 
-        public async Task<IActionResult> CreatedBook([FromBody] CreateBookDt bookDto)
+        public async Task<IActionResult> CreatedBook([FromBody] CreateBookDto bookDto)
         {
             var book = new Book()
             {
@@ -79,6 +80,17 @@ namespace LibraryApi.Controllers
 
             await _bookService.UpdateBook(existingBook);
             return Ok(existingBook);
+        }
+
+        [HttpDelete("book-deldete")]
+        public async Task<IActionResult> DeleteBook(Guid id)
+        {
+            var book = await _bookService.DeleteBook(id);
+            if(book == null)
+            {
+                return NotFound();
+            }
+            return Ok(book);
         }
 
     }
